@@ -1,10 +1,18 @@
 export default function initMenuMobile() {
   const menuBotao = document.querySelector('[data-menu="botao"]');
   const menuLista = document.querySelector('[data-menu="lista"]');
+  const html = document.documentElement;
 
   function openMenu() {
-    menuBotao.classList.toggle('active');
-    menuLista.classList.toggle('active');
+    menuBotao.classList.add('active');
+    menuLista.classList.add('active');
+    setTimeout(() => html.addEventListener('click', closeMenu));
+  }
+
+  function closeMenu() {
+    menuBotao.classList.remove('active');
+    menuLista.classList.remove('active');
+    setTimeout(() => html.removeEventListener('click', closeMenu));
   }
 
   menuBotao.addEventListener('click', openMenu);
