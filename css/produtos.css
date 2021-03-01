@@ -6,9 +6,7 @@
   justify-content: center;
 }
 
-.controles li + li {
-  margin-left: 20px;
-}
+
 
 .controles li {
   background: #3391ff;
@@ -19,6 +17,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: .3s;
+  margin: 8px;
 }
 
 .controles li:hover {
