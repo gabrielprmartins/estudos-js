@@ -115,4 +115,7 @@
   .conteudo img {
     max-width: 280px;
   }
+  .conteudo .titulo::after {
+    top: 12px;
+  }
 }
