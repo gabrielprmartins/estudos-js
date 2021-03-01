@@ -8,24 +8,65 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="logo">
-      <h1><span>JS</span>Tests</h1>
-    </div>
-
-    <nav class="menu">
-      <button data-menu="botao" class="btn-menu">Menu</button>
-      <ul data-menu="lista">
-        <li><a href="#" class="btn-produtos">Produtos</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contato</a></li>
+  <div class="grid">
+    <header class="header">
+      <div class="logo">
+        <h1><span>JS</span>Tests</h1>
+      </div>
+  
+      <nav class="menu">
+        <button data-menu="botao" class="btn-menu">Menu</button>
+        <ul data-menu="lista">
+          <li><a href="#" class="btn-produtos">Produtos</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <section class="center-column">
+      <h1 class="titulo-principal">Javascript</h1>
+      <ul class="controles" data-nav="controles">
+        <li>Aprendizado</li>
+        <li>Módulos</li>
+        <li>Aprofundando</li>
       </ul>
-    </nav>
-  </header>
 
-  <h1></h1>
-
+      <div class="conteudo" data-nav="conteudo">
+        <section>
+          <h1 class="titulo">Aprendizado</h1>
+          <img src="assets/imagens/img1.jpg">
+          <article>
+            <p class="paragrafo">O JavaScript não é tão fácil de aprender como outras linguagens, como HTML e CSS, que são outros dois pilares do desenvolvimento front-end. Antes de tentar aprender JavaScript, é altamente recomendável que você aprenda e se familiarize com pelo menos estas duas tecnologias primeiro. Você pode começar através dos seguintes módulos</p>
+            <ul class="modulos">
+              <li>Começando na Web</li>
+              <li>Introdução ao HTML</li>
+              <li>Introdução ao CSS</li>
+            </ul>
+          </article>
+        </section>
+        <section>
+          <h1 class="titulo">Módulos</h1>
+          <img src="assets/imagens/img2.jpg">
+          <article>
+            <p class="paragrafo">Em nosso primeiro módulo JavaScript, primeiro responderemos algumas questões fundamentais como "o que é JavaScript?", "Como ele se parece?" E "o que ele pode fazer?", antes de passar para sua primeira experiência prática de escrever JavaScript. Depois disso, discutimos alguns recursos chave do JavaScript em detalhes, como variáveis, cadeias de caracteres, números e matrizes.</p>
+          </article>
+        </section>
+        <section>
+          <h1 class="titulo">Aprofundando</h1>
+          <img src="assets/imagens/img3.jpg">
+          <article>
+            <p class="paragrafo">Uma vez que você se acostumar com o mundo do JavaScript aqui estão alguns outros módulos em que você pode mergulhar</p>
+            <h2 class="sub">Biblioteca de referência JavaScript</h2>
+            <p class="paragrafo">Em nossa extensa biblioteca de referência você encontrará cada aspecto de Javascript tratado em detalhes: objetos globais, operadores, declarações e funções.</p>
+            <h2 class="sub">Introdução à Orientação a Objetos (OO) em JavaScript</h2>
+            <p class="paragrafo">Introdução aos conceitos de Programação orientada a objetos em JavaScript.</p>
+          </article>
+        </section>
+      </div>
+    </section>
+  </div>
   <script type="module" src="js/script.js"></script>
 </body>
 </html>
