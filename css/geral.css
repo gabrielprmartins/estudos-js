@@ -164,6 +164,9 @@ body {
     margin-top: 30px;
     font-size: 3rem;
   }
+  .titulo {
+    font-size: 1.875rem;
+  }
   .titulo-produtos {
     font-size: 1.575rem;
   }
