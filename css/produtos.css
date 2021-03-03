@@ -46,11 +46,11 @@
   grid-column: 1;
 }
 
-.conteudo .titulo {
+.conteudo .titulo-produtos {
   text-align: right;
 }
 
-.conteudo .titulo::after {
+.conteudo .titulo-produtos::after {
   content: '';
   position: absolute;
   display: inline-block;
