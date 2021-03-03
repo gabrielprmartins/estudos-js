@@ -35,7 +35,6 @@
   grid-template-columns: minmax(100px, 1fr) 2fr;
   grid-gap: 1.275rem 30px;
   position: relative;
-  padding: 0px 20px;
 }
 
 .conteudo section.ativo {
