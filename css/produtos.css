@@ -104,16 +104,14 @@
     margin: 30px 0;
     grid-template-columns: 1fr;
   }
-  .conteudo .titulo {
+  .conteudo .titulo-produtos {
     text-align: left;
+    top: 12px;
   }
-  .conteudo .titulo::after {
+  .conteudo .titulo-produtos::after {
     margin-left: 10px;
   } 
   .conteudo img {
     max-width: 280px;
-  }
-  .conteudo .titulo::after {
-    top: 12px;
   }
 }
