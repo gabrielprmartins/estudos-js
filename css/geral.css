@@ -104,7 +104,7 @@ body {
 /* titulos */
 .titulo-principal {
   grid-column: 2;
-  font-size: 3rem;
+  font-size: 4rem;
   margin: 60px 0 30px;
   line-height: 1;
   text-align: center;
@@ -157,7 +157,7 @@ body {
 @media (max-width: 700px) {
   .titulo-principal {
     margin-top: 30px;
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .titulo {
     font-size: 1.575rem;
