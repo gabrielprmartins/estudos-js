@@ -2,7 +2,7 @@ export default function initAnimaScroll() {
   const scroll = Array.from(document.querySelectorAll('[data-scroll]'));
   if(scroll) {
     scroll[0].classList.add('anima-scroll');
-    const windowMetade = window.innerHeight * 0.6;
+    const windowMetade = window.innerHeight * 0.7;
 
     function animaScroll() {
       scroll.forEach((item) => {
