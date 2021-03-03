@@ -106,10 +106,10 @@
   }
   .conteudo .titulo-produtos {
     text-align: left;
-    top: 12px;
   }
   .conteudo .titulo-produtos::after {
     margin-left: 10px;
+    top: 12px;
   } 
   .conteudo img {
     max-width: 280px;
