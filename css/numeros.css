@@ -1,0 +1,29 @@
+.numeros-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 400px));
+  margin: 2.375rem 0;
+  margin-bottom: 300px;
+}
+
+.numeros {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.numeros span {
+  font-size: 3rem;
+  font-weight: 700;;
+}
+
+.numeros h3 {
+  color: #3391ff;
+}
+
+@media(max-width: 400px) {
+  .numeros span {
+    font-size: 2.375rem;
+  }
+  .numeros h3 {
+    font-size: 1rem;
+  }
+}
