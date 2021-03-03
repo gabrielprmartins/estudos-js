@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(100px, 400px));
   margin: 2.375rem 0;
-  margin-bottom: 300px;
 }
 
 .numeros {
