@@ -7,8 +7,9 @@
   margin-bottom: 30px;
 }
 
-.controles li {
+.controles li button {
   background: #3391ff;
+  border: none;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,.2);
@@ -19,13 +20,13 @@
   margin: 8px;
 }
 
-.controles li:hover {
+.controles li button:hover {
   transform: scale(1.1);
   text-decoration: none;
   background: #0076FF;
 }
 
-.controles li.ativo {
+.controles li button.ativo {
   background: #0076FF;
 }
 

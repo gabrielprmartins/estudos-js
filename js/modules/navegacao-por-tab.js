@@ -1,5 +1,5 @@
 export default function initTabNavigation() {
-  const tabControls = document.querySelectorAll('[data-nav="controles"] li');
+  const tabControls = document.querySelectorAll('[data-nav="controles"] li button');
   const tabContent = document.querySelectorAll('[data-nav="conteudo"] section');
   if(tabControls && tabContent) {
     tabControls[0].classList.add('ativo');

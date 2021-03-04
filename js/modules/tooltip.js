@@ -28,11 +28,8 @@ export default function initTooltip() {
   
     function handleTooltip() {
       const tooltipBox = createTooltip(this);
-      const tDimensions = tooltipBox.getBoundingClientRect();
       
-  
       showTooltip.tooltipBox = tooltipBox;
-      showTooltip.tDimensions = tDimensions;
       this.addEventListener('mousemove', showTooltip); 
       
       hiddenTooltip.element = this;
