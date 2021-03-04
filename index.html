@@ -18,7 +18,7 @@
       <nav class="menu">
         <button data-menu="botao" class="btn-menu">Menu</button>
         <ul data-menu="lista">
-          <li><a href="#" class="btn-produtos">Produtos</a></li>
+          <li><a href="#produtos" class="btn-produtos">Produtos</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Contato</a></li>
@@ -37,7 +37,7 @@
 
       <div class="conteudo" data-nav="conteudo">
         <section>
-          <h1 class="titulo-produtos">Aprendizado</h1>
+          <h1 class="titulo-sobre">Aprendizado</h1>
           <img src="assets/imagens/img3.jpg">
           <article>
             <p class="paragrafo">O JavaScript não é tão fácil de aprender como outras linguagens, como HTML e CSS, que são outros dois pilares do desenvolvimento front-end. Antes de tentar aprender JavaScript, é altamente recomendável que você aprenda e se familiarize com pelo menos estas duas tecnologias primeiro. Você pode começar através dos seguintes módulos</p>
@@ -49,14 +49,14 @@
           </article>
         </section>
         <section>
-          <h1 class="titulo-produtos">Módulos</h1>
+          <h1 class="titulo-sobre">Módulos</h1>
           <img src="assets/imagens/img2.jpg">
           <article>
             <p class="paragrafo">Em nosso primeiro módulo JavaScript, primeiro responderemos algumas questões fundamentais como "o que é JavaScript?", "Como ele se parece?" E "o que ele pode fazer?", antes de passar para sua primeira experiência prática de escrever JavaScript. Depois disso, discutimos alguns recursos chave do JavaScript em detalhes, como variáveis, cadeias de caracteres, números e matrizes.</p>
           </article>
         </section>
         <section>
-          <h1 class="titulo-produtos">Aprofundando</h1>
+          <h1 class="titulo-sobre">Aprofundando</h1>
           <img src="assets/imagens/img1.jpg">
           <article>
             <p class="paragrafo">Uma vez que você se acostumar com o mundo do JavaScript aqui estão alguns outros módulos em que você pode mergulhar</p>
@@ -91,7 +91,34 @@
       </div>
     </section>
 
-    <!-- fazer tooltip com produtos -->
+    <section class="produtos center-column" id="produtos" data-scroll>
+      <h2 class="titulo">Escolha o seu caminho</h2>
+      <article class="col1">
+        <h3>Web Design Completo</h3>
+        <ul class="produtos-lista">
+          <li data-tooltip aria-label="Acesso ilimitado e garantido logo após a compra">Acesso ilimitado</li>
+          <li data-tooltip aria-label="Suporte completo em nossa plataforma">Suporte</li>
+          <li data-tooltip aria-label="Com assinatura de professores e válido em território nacional">Certificado</li>
+          <li data-tooltip aria-label="Sem enrolação alguma">Reembolso em 1 semana</li>
+        </ul>
+        <span class="preco"><sup>R$</sup>200,00</span>
+        <button class="btn-curso">Comprar</button>
+      </article>
+      <article class="col2">
+        <h3>JavaScript Completo</h3>
+        <ul class="produtos-lista">
+          <li data-tooltip aria-label="Acesso ilimitado e garantido logo após a compra">Acesso ilimitado</li>
+          <li data-tooltip aria-label="Sem enrolação alguma">Reembolso em 1 semana</li>
+          <li data-tooltip aria-label="Com assinatura de professores e válido em território nacional">Certificado</li>
+          <li data-tooltip aria-label="Fale com nossos instrutores ao vivo e com antecedência">Suporte Premium</li>
+          <li data-tooltip aria-label="Aulas para o resto da sua vida">Download das Aulas</li>
+        </ul>
+        <span class="preco"><sup>R$</sup>400,00</span>
+        <button class="btn-curso">Comprar</button>
+      </article>
+    </section>
+
+    <section class="center-column"></section>
   </div>
   <script type="module" src="js/script.js"></script>
 </body>
