@@ -12,6 +12,8 @@ const conteudoPost = document.querySelector('[data-post="conteudo"]');
 const loading = document.querySelector('.loading');
 
 function getPost(id, animation) {
+  tituloPost.innerText = '';
+  conteudoPost.innerText = '';
   post.removeAttribute('data-post', animation);
   loading.classList.add('active');
   tituloPost.appendChild(loading);
