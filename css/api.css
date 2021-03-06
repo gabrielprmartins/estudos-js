@@ -16,6 +16,7 @@
   border-radius: 0px 5px 5px 0px;
   color: #1191ff;
   font-weight: 700;
+  transition: .3s;
 }
 
 .btn-proximo {
@@ -34,4 +35,14 @@
 .btn-proximo:hover {
   background: #0076FF;
   transform: scale(1.1);
+}
+
+@media (max-width: 700px) {
+  .api h1 {
+    margin-bottom: 10px;
+  }
+  .api {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
 }

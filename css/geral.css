@@ -139,6 +139,7 @@ body {
   background: #3391ff;
   margin-right: 4px;
 }
+
 /* paragrafo */
 .paragrafo {
   font-size: 1rem;
@@ -149,6 +150,12 @@ body {
 
 .paragrafo + .paragrafo {
   margin-top: .5rem;
+}
+
+/* links */
+.link {
+  color: #3391ff;
+  text-decoration: underline;
 }
 
 /* blink */
