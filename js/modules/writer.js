@@ -6,7 +6,6 @@ export default function initWriter() {
       element.classList.add('blink');
       const letters = element.innerText.split('');
       element.innerHTML = '';
-      console.log(letters)
       letters.forEach((letter, i) => {
         setTimeout(() => {
           element.innerHTML += letter;
