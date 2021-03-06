@@ -5,6 +5,7 @@ import initAnimaScroll from './modules/anima-scroll.js';
 import initTooltip from './modules/tooltip.js';
 import initWriter from './modules/writer.js';
 import initChuckNorrisJokes from './modules/chucknorris-api.js';
+import initFakeApi from './modules/api-fake.js';
 
 initMenuMobile();
 initTabNavigation();
@@ -13,3 +14,4 @@ initAnimaScroll();
 initTooltip();
 initWriter();
 initChuckNorrisJokes();
+initFakeApi();
