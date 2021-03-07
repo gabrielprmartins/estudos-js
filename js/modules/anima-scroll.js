@@ -1,6 +1,6 @@
 export default function initAnimaScroll() {
   const scroll = Array.from(document.querySelectorAll('[data-scroll]'));
-  if(scroll) {
+  if(scroll[0]) {
     scroll[0].classList.add('anima-scroll');
     const windowMetade = window.innerHeight * 0.7;
 

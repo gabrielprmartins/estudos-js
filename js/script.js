@@ -4,8 +4,7 @@ import initAnimationNumers from './modules/animation-numbers.js';
 import initAnimaScroll from './modules/anima-scroll.js';
 import initTooltip from './modules/tooltip.js';
 import initWriter from './modules/writer.js';
-import initChuckNorrisJokes from './modules/chucknorris-api.js';
-import initFakeApi from './modules/api-fake.js';
+import initHistoryApi from './modules/historyapi.js';
 
 initMenuMobile();
 initTabNavigation();
@@ -13,5 +12,12 @@ initAnimationNumers();
 initAnimaScroll();
 initTooltip();
 initWriter();
-initChuckNorrisJokes();
-initFakeApi();
+initHistoryApi();
+
+export function activeFunctions() {
+  initTabNavigation();
+  initAnimationNumers();
+  initAnimaScroll();
+  initTooltip();
+  initWriter();
+}

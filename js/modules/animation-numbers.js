@@ -16,14 +16,16 @@ export default function initAnimationNumers() {
       });
     }
 
-    const observer = new MutationObserver(handleMutation);
     const observerTarget = document.querySelector('.numeros-curso');
-    observer.observe(observerTarget, {attributes: true});
+    if(observerTarget) {
+      const observer = new MutationObserver(handleMutation);
+      observer.observe(observerTarget, {attributes: true});
 
-    function handleMutation(mutation) {
-      if(mutation[0].target.classList.contains('anima-scroll')) {
-        observer.disconnect();
-        animaNumeros();
+      function handleMutation(mutation) {
+        if(mutation[0].target.classList.contains('anima-scroll')) {
+          observer.disconnect();
+          animaNumeros();
+        }
       }
     }
   }

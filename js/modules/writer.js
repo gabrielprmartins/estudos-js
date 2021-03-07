@@ -1,7 +1,7 @@
 export default function initWriter() {
-  const writer = document.querySelector('[data-writer]');
+  const writers = document.querySelectorAll('[data-writer]');
 
-  if(writer) {
+  if(writers) {
     function startWriter(element) {
       element.classList.add('blink');
       const letters = element.innerText.split('');
@@ -10,10 +10,10 @@ export default function initWriter() {
         setTimeout(() => {
           element.innerHTML += letter;
         }, 150 * i);
-      })
+      });
     }
     
-    startWriter(writer);
+    writers.forEach(writer => startWriter(writer));
   }
 }
 
