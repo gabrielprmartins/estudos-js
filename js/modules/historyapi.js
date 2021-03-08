@@ -1,8 +1,9 @@
 import { activeFunctions } from '../script.js';
+import { loading } from './loading.js';
+import { erro } from './error.js';
 
 export default function initHistoryApi() {
   const linksMenu = Array.from(document.querySelectorAll('header a'));
-  const loading = document.querySelector('.loading');
 
   if(linksMenu && loading) {
     function handleClick(event) {
@@ -12,13 +13,17 @@ export default function initHistoryApi() {
     }
     
     async function fetchPage(url) {
-      loading.classList.add('active');
-      document.querySelector('.grid .center-column').innerHTML = '';
-      document.querySelector('.grid .center-column').appendChild(loading);
-      const pageResponse = await fetch(url);
-      const pageText = await pageResponse.text();
-    
-      replaceContent(pageText);
+      try {
+        loading(true);
+        const pageResponse = await fetch(url);
+        if(!pageResponse.ok) throw new Error(pageResponse.statusText);
+        const pageText = await pageResponse.text();
+        replaceContent(pageText);
+      } catch(err) {
+        erro(err);
+      } finally {
+        loading(false);
+      }
     }
     
     function replaceContent(content) {
