@@ -5,7 +5,6 @@ import initAnimaScroll from './modules/anima-scroll.js';
 import initTooltip from './modules/tooltip.js';
 import initWriter from './modules/writer.js';
 import initHistoryApi from './modules/historyapi.js';
-import initProdutos from './modules/produtos.js';
 
 initMenuMobile();
 initTabNavigation();
@@ -14,7 +13,6 @@ initAnimaScroll();
 initTooltip();
 initWriter();
 initHistoryApi();
-initProdutos();
 
 export function activeFunctions() {
   initTabNavigation();
