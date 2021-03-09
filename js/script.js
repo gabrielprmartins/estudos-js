@@ -16,7 +16,6 @@ initHistoryApi();
 
 export function activeFunctions() {
   initTabNavigation();
-  initAnimationNumers();
   initAnimaScroll();
   initTooltip();
   initWriter();

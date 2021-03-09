@@ -1,7 +1,11 @@
 import { loading } from './loading.js';
 import { erro } from './error.js';
+import { activeFunctions } from '../script.js';
 
-export function initProdutos() {
+const tituloProdutos = document.querySelector('.produto-titulo');
+
+export function initProdutos() {  
+
   async function fetchProdutos(url) {
     try {
       loading(true);
@@ -18,7 +22,10 @@ export function initProdutos() {
   
   function getProdutos(produtos) {
     const produtosGrid = document.querySelector('[data-produtos]');
-    
+    const tituloPrincipal = document.querySelector('.titulo-principal');
+    if(!tituloPrincipal) document.querySelector('.grid .center-column').insertBefore(tituloProdutos, produtosGrid);
+    activeFunctions();
+
     if(produtosGrid) {
       produtos.forEach(produto => {
         produtosGrid.innerHTML += `
@@ -33,16 +40,19 @@ export function initProdutos() {
       })
 
       const produtosDiv = document.querySelectorAll('.produto');
-      if(produtosDiv) produtosDiv.forEach(p => p.addEventListener('click', (e) => hiperlinkProducts(e, produtos)));
+      if(produtosDiv) produtosDiv.forEach(p => p.addEventListener('click', (e) => permalinkProducts(e, produtos)));
     }
   }
 
-  function hiperlinkProducts(e, produtos) {
+  function permalinkProducts(e, produtos) {
     const produtosGrid = document.querySelector('[data-produtos]');
-    
+    const tituloPrincipal = document.querySelector('.titulo-principal');
+    console.log(e.target)
+
     produtos.forEach(produto => {
-      document.body.scrollIntoView();
       if(produto.fotos[0].src === e.target.src) {
+        if(tituloPrincipal) tituloPrincipal.remove();
+        document.body.scrollIntoView();
         // window.history.pushState(null, null, 'produto/'+ produto.nome);
         produtosGrid.innerHTML = `
           <div class="produto-especificacoes">
@@ -59,20 +69,21 @@ export function initProdutos() {
         const btnVoltarProdutos = document.querySelector('[data-produto="voltar"]');
         const produtoEspecificacoes = document.querySelector('.produto-especificacoes');
 
-        if(btnVoltarProdutos && produtoEspecificacoes) btnVoltarProdutos.addEventListener('click', () => {
-          produtoEspecificacoes.remove();
-          getProdutos(produtos);
-        })
-        if(document.title.includes(produto.nome)) {
-          window.addEventListener('popstate', () => { 
-            getProdutos(produtos);
+        if(btnVoltarProdutos && produtoEspecificacoes) {
+          btnVoltarProdutos.addEventListener('click', () => {
             produtoEspecificacoes.remove();
-          });
-        } 
+            getProdutos(produtos);
+          })
+        }
+        // if(document.title.includes(produto.nome)) {
+        //   window.addEventListener('popstate', () => { 
+        //     produtoEspecificacoes.remove();
+        //     getProdutos(produtos);
+        //   });
+        // } 
       }
     })
   }
   
   fetchProdutos('https://ranekapi.origamid.dev/json/api/produto');
 }
-
