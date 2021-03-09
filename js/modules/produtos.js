@@ -21,11 +21,12 @@ export function initProdutos() {
     document.title = document.title;
     const tituloProdutos = document.createElement('h1');
     tituloProdutos.className = 'titulo-principal produto-titulo';
-    tituloProdutos.innerText = document.title;
+    tituloProdutos.innerText = 'Produtos';
     tituloProdutos.setAttribute('data-writer', '');
 
     const produtosGrid = document.querySelector('[data-produtos]');
     if(produtosGrid) produtosGrid.classList.add('get-in');
+
     const tituloPrincipal = document.querySelector('.titulo-principal');
     if(!tituloPrincipal) produtosGrid.parentElement.insertBefore(tituloProdutos, produtosGrid);
     activeFunctions();
