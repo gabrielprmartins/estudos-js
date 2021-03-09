@@ -21,6 +21,7 @@ export function initProdutos() {
   }
   
   function getProdutos(produtos) {
+    document.title = tituloProdutos.innerText;
     const produtosGrid = document.querySelector('[data-produtos]');
     const tituloPrincipal = document.querySelector('.titulo-principal');
     if(!tituloPrincipal) document.querySelector('.grid .center-column').insertBefore(tituloProdutos, produtosGrid);
@@ -47,7 +48,6 @@ export function initProdutos() {
   function permalinkProducts(e, produtos) {
     const produtosGrid = document.querySelector('[data-produtos]');
     const tituloPrincipal = document.querySelector('.titulo-principal');
-    console.log(e.target)
 
     produtos.forEach(produto => {
       if(produto.fotos[0].src === e.target.src) {
