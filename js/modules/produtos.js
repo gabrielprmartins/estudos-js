@@ -18,7 +18,6 @@ export function initProdutos() {
   }
   
   function getProdutos(produtos) {
-    document.title = document.title;
     const tituloProdutos = document.createElement('h1');
     tituloProdutos.className = 'titulo-principal produto-titulo';
     tituloProdutos.innerText = 'Produtos';
@@ -77,6 +76,7 @@ export function initProdutos() {
 
         if(btnVoltarProdutos && produtoEspecificacoes) {
           btnVoltarProdutos.addEventListener('click', () => {
+            document.title = tituloPrincipal.innerText;
             produtoEspecificacoes.remove();
             produtosGrid.classList.add('get-in');
             getProdutos(produtos);
