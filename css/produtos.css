@@ -24,6 +24,11 @@
   border-radius: 5px 5px 0px 0px;
 }
 
+.produto-espec-img {
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,.15);
+  border-radius: 5px;
+}
+
 .info-produto {
   display: flex;
   flex-direction: column;
@@ -45,7 +50,7 @@
 }
 
 .produto:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .produto-especificacoes {
@@ -58,7 +63,7 @@
 
 .voltar-produto {
   background: #3391ff;
-  box-shadow: 0 10px 20px 0 rgba(0,0,0,.25);
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.15);
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -66,7 +71,16 @@
   padding: 10px 15px;
   cursor: pointer;
   font-weight: 700;
-  max-width: 150px;
+  max-width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voltar-produto div {
+  display: inline-block;
+  transform: scale(-1);
+  margin-right: 10px;
 }
 
 .voltar-produto:hover {
@@ -91,10 +105,10 @@
     grid-gap: 20px 15px;
   }
   .nome-produto {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .preco-produto {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .produto-especificacoes {
     grid-template-columns: 1fr;

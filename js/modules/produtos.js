@@ -2,8 +2,6 @@ import { loading } from './loading.js';
 import { erro } from './error.js';
 import { activeFunctions } from '../script.js';
 
-const tituloProdutos = document.querySelector('.produto-titulo');
-
 export function initProdutos() {  
 
   async function fetchProdutos(url) {
@@ -22,9 +20,15 @@ export function initProdutos() {
   
   function getProdutos(produtos) {
     document.title = 'Produtos';
+    const tituloProdutos = document.createElement('h1');
+    tituloProdutos.className = 'titulo-principal produto-titulo';
+    tituloProdutos.innerText = document.title;
+    tituloProdutos.setAttribute('data-writer', '');
+
     const produtosGrid = document.querySelector('[data-produtos]');
     const tituloPrincipal = document.querySelector('.titulo-principal');
-    if(!tituloPrincipal) document.querySelector('.grid .center-column').insertBefore(tituloProdutos, produtosGrid);
+    if(!tituloPrincipal) produtosGrid.parentElement.insertBefore(tituloProdutos, produtosGrid);
+    // document.querySelector('.grid .center-column').insertBefore(tituloProdutos, produtosGrid);
     activeFunctions();
 
     if(produtosGrid) {
@@ -57,8 +61,8 @@ export function initProdutos() {
         // window.history.pushState(null, null, 'produto/'+ produto.nome);
         produtosGrid.innerHTML = `
           <div class="produto-especificacoes">
-           <button class="voltar-produto" data-produto="voltar">◄ Voltar</button>
-            <img src="${produto.fotos[0].src}" alt="${produto.fotos[0].titulo}" class="produto-img">
+           <button class="voltar-produto" data-produto="voltar"><div>➜</div> Voltar</button>
+            <img src="${produto.fotos[0].src}" alt="${produto.fotos[0].titulo}" class="produto-espec-img">
             <div class="especificacoes">
               <h2 class="nome-produto">${produto.nome}</h2>
               <span class="preco-produto">R$ ${produto.preco}</span>

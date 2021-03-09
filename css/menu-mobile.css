@@ -9,7 +9,7 @@
 
   .menu .btn-menu {
     display: block;
-    box-shadow: 2px 2px 2px 0px rgba(0,0,0,.2);
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,.15);
     background: #3391ff;
     border: none;
     border-radius: 5px;
