@@ -21,7 +21,7 @@ export function initProdutos() {
   }
   
   function getProdutos(produtos) {
-    document.title = tituloProdutos.innerText;
+    document.title = 'Produtos';
     const produtosGrid = document.querySelector('[data-produtos]');
     const tituloPrincipal = document.querySelector('.titulo-principal');
     if(!tituloPrincipal) document.querySelector('.grid .center-column').insertBefore(tituloProdutos, produtosGrid);
