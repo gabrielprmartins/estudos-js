@@ -30,7 +30,7 @@ export function initProdutos() {
     if(produtosGrid) {
       produtos.forEach(produto => {
         produtosGrid.innerHTML += `
-          <div class="produto">
+          <div class="produto" data-produto-id="${produto.id}">
             <img src="${produto.fotos[0].src}" alt="${produto.fotos[0].titulo}" class="produto-img">
             <div class="info-produto">
               <span class="preco-produto">R$ ${produto.preco}</span>
@@ -48,9 +48,10 @@ export function initProdutos() {
   function permalinkProducts(e, produtos) {
     const produtosGrid = document.querySelector('[data-produtos]');
     const tituloPrincipal = document.querySelector('.titulo-principal');
+    const produtoId = document.querySelectorAll('[data-produto-id]');
 
-    produtos.forEach(produto => {
-      if(produto.fotos[0].src === e.target.src) {
+    produtos.forEach((produto, i) => {
+      if(e.currentTarget === produtoId[i]) {
         if(tituloPrincipal) tituloPrincipal.remove();
         document.body.scrollIntoView();
         // window.history.pushState(null, null, 'produto/'+ produto.nome);
