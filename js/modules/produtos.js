@@ -18,7 +18,7 @@ export function initProdutos() {
   }
   
   function getProdutos(produtos) {
-    document.title = 'Produtos';
+    document.title = document.title;
     const tituloProdutos = document.createElement('h1');
     tituloProdutos.className = 'titulo-principal produto-titulo';
     tituloProdutos.innerText = document.title;
@@ -70,7 +70,7 @@ export function initProdutos() {
             </div>
           </div>
         `;
-        document.title = document.querySelector('title').innerText + ' | ' + produto.nome;
+        document.title = produto.nome;
         const btnVoltarProdutos = document.querySelector('[data-produto="voltar"]');
         const produtoEspecificacoes = document.querySelector('.produto-especificacoes');
 
