@@ -5,6 +5,10 @@
   gap: 30px;
 }
 
+.produtos-grid.get-in {
+  animation: show-down .3s forwards;
+}
+
 .produto-titulo {
   margin-bottom: 60px;
 }

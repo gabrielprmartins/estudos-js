@@ -3,7 +3,6 @@ import { erro } from './error.js';
 import { activeFunctions } from '../script.js';
 
 export function initProdutos() {  
-
   async function fetchProdutos(url) {
     try {
       loading(true);
@@ -26,9 +25,9 @@ export function initProdutos() {
     tituloProdutos.setAttribute('data-writer', '');
 
     const produtosGrid = document.querySelector('[data-produtos]');
+    if(produtosGrid) produtosGrid.classList.add('get-in');
     const tituloPrincipal = document.querySelector('.titulo-principal');
     if(!tituloPrincipal) produtosGrid.parentElement.insertBefore(tituloProdutos, produtosGrid);
-    // document.querySelector('.grid .center-column').insertBefore(tituloProdutos, produtosGrid);
     activeFunctions();
 
     if(produtosGrid) {
@@ -51,6 +50,7 @@ export function initProdutos() {
 
   function permalinkProducts(e, produtos) {
     const produtosGrid = document.querySelector('[data-produtos]');
+    produtosGrid.classList.remove('get-in');
     const tituloPrincipal = document.querySelector('.titulo-principal');
     const produtoId = document.querySelectorAll('[data-produto-id]');
 
@@ -77,6 +77,7 @@ export function initProdutos() {
         if(btnVoltarProdutos && produtoEspecificacoes) {
           btnVoltarProdutos.addEventListener('click', () => {
             produtoEspecificacoes.remove();
+            produtosGrid.classList.add('get-in');
             getProdutos(produtos);
           })
         }
