@@ -27,7 +27,11 @@ export function initProdutos() {
     if(produtosGrid) produtosGrid.classList.add('get-in');
 
     const tituloPrincipal = document.querySelector('.titulo-principal');
-    if(!tituloPrincipal) produtosGrid.parentElement.insertBefore(tituloProdutos, produtosGrid);
+    if(!tituloPrincipal) {
+      if(produtosGrid) {
+        produtosGrid.parentElement.insertBefore(tituloProdutos, produtosGrid)
+      }
+    }
     activeFunctions();
 
     if(produtosGrid) {
@@ -82,12 +86,12 @@ export function initProdutos() {
             getProdutos(produtos);
           })
         }
-        // if(document.title.includes(produto.nome)) {
-        //   window.addEventListener('popstate', () => { 
-        //     produtoEspecificacoes.remove();
-        //     getProdutos(produtos);
-        //   });
-        // } 
+        if(document.title === produto.nome) {
+          window.addEventListener('popstate', () => { 
+            produtoEspecificacoes.remove();
+            getProdutos(produtos);
+          });
+        } 
       }
     })
   }
