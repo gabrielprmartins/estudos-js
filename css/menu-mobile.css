@@ -2,6 +2,10 @@
   .menu ul {
     display: none;
   }
+  
+  .menu li + li {
+    margin-left: 0px;
+  }
 
   .menu .btn-menu {
     display: block;
