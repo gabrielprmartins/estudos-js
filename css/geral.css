@@ -79,7 +79,10 @@ body {
 .menu li a {
   display: block;
   padding: 10px 15px;
-  margin-right: 20px;
+}
+
+.menu li + li {
+  margin-left: 20px;
 }
 
 .menu li a:hover {

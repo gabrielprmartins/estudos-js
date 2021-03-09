@@ -1,9 +1,11 @@
 import { activeFunctions } from '../script.js';
 import { loading } from './loading.js';
 import { erro } from './error.js';
+import { initProdutos } from './produtos.js';
 
 export default function initHistoryApi() {
   const linksMenu = Array.from(document.querySelectorAll('header a'));
+  const linkProdutos = document.querySelector('[data-menu="lista"] li:first-child a').href;
 
   if(linksMenu && loading) {
     function handleClick(event) {
@@ -17,7 +19,8 @@ export default function initHistoryApi() {
         loading(true);
         const pageResponse = await fetch(url);
         if(!pageResponse.ok) throw new Error(pageResponse.statusText);
-        const pageText = await pageResponse.text();
+        const pageText = await pageResponse.text(); 
+        initProdutos();
         replaceContent(pageText);
       } catch(err) {
         erro(err);
@@ -41,5 +44,6 @@ export default function initHistoryApi() {
     window.addEventListener('popstate', () => fetchPage(window.location.href));
     
     linksMenu.forEach(l => l.addEventListener('click', handleClick));
+    if(window.location.href === linkProdutos) window.onload = () => { fetchPage(linkProdutos) };
   }
 }

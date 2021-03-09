@@ -1,7 +1,7 @@
 import { loading } from './loading.js';
 import { erro } from './error.js';
 
-export default function initProdutos() {
+export function initProdutos() {
   async function fetchProdutos(url) {
     try {
       loading(true);
@@ -19,17 +19,19 @@ export default function initProdutos() {
   function getProdutos(produtos) {
     const produtosDom = document.querySelector('[data-produtos]');
     
-    produtos.forEach(produto => {
-      produtosDom.innerHTML += `
-        <div class="produto">
-          <img src="${produto.fotos[0].src}" alt="${produto.fotos[0].titulo}" class="produto-img">
-          <div class="info-produto">
-            <h2 class="nome-produto">${produto.nome}</h2>
-            <span class="preco-produto">${produto.preco}</span>
+    if(produtosDom) {
+      produtos.forEach(produto => {
+        produtosDom.innerHTML += `
+          <div class="produto">
+            <img src="${produto.fotos[0].src}" alt="${produto.fotos[0].titulo}" class="produto-img">
+            <div class="info-produto">
+              <h2 class="nome-produto">${produto.nome}</h2>
+              <span class="preco-produto">${produto.preco}</span>
+            </div>
           </div>
-        </div>
-      `;
-    })
+        `;
+      })
+    }
   }
   
   fetchProdutos('https://ranekapi.origamid.dev/json/api/produto');

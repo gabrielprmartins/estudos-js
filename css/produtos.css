@@ -7,11 +7,13 @@
 
 .produto {
   position: relative;
+  transition: .3s;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,.2);
+  border-radius: 5px;
 }
 
 .produto-img {
-  max-width: 100%;
-  display: block;
+  box-shadow: none;
 }
 
 .info-produto {
@@ -50,6 +52,10 @@
   animation: show-up .3s forwards;
 }
 
+.produto:hover {
+  transform: scale(1.1);
+}
+
 @keyframes show-visible {
   from {
     opacity: 0;
@@ -64,6 +70,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .nome-produto {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
