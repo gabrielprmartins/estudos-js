@@ -74,26 +74,27 @@ export function initProdutos() {
             </div>
           </div>
         `;
-        document.title = produto.nome;
+        
         const btnVoltarProdutos = document.querySelector('[data-produto="voltar"]');
         const produtoEspecificacoes = document.querySelector('.produto-especificacoes');
 
         if(btnVoltarProdutos && produtoEspecificacoes) {
           btnVoltarProdutos.addEventListener('click', () => {
-            document.title = tituloPrincipal.innerText;
             produtoEspecificacoes.remove();
             produtosGrid.classList.add('get-in');
             getProdutos(produtos);
           })
         }
+        
         // if(document.title === produto.nome) {
+        //   window.removeEventListener;
         //   window.addEventListener('popstate', () => { 
         //     document.title = tituloPrincipal.innerText;
         //     produtoEspecificacoes.remove();
         //     produtosGrid.classList.add('get-in');
         //     getProdutos(produtos);
         //   });
-        // }
+        // } 
         
       }
     })
