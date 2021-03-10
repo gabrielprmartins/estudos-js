@@ -87,14 +87,13 @@ export function initProdutos() {
           })
         }
         // if(document.title === produto.nome) {
-        //   window.removeEventListener;
         //   window.addEventListener('popstate', () => { 
         //     document.title = tituloPrincipal.innerText;
         //     produtoEspecificacoes.remove();
         //     produtosGrid.classList.add('get-in');
         //     getProdutos(produtos);
         //   });
-        // } 
+        // }
         
       }
     })

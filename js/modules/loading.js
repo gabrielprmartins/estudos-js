@@ -9,7 +9,7 @@ if(boolean === true) {
     </div>
   `;
   const grid = document.querySelector('.grid .center-column');
-  grid.innerHTML = loading;
+  grid.innerHTML += loading;
 } else if(boolean === false) {
     const loading = document.querySelector('.loading');
     if(loading) loading.remove();
