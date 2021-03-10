@@ -85,7 +85,6 @@ export function initProdutos() {
             getProdutos(produtos);
           })
         }
-        
         // if(document.title === produto.nome) {
         //   window.removeEventListener;
         //   window.addEventListener('popstate', () => { 
