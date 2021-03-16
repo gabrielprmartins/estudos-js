@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production ./js/script.js -o public ./main.js",
-    "dev": "webpack --mode development -w ./js/script.js -o public ./main.js"
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development -w"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,18 @@
   },
   "homepage": "https://github.com/gabriuda/estudos-js#readme",
   "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "webpack": "^5.26.1",
     "webpack-cli": "^4.5.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "whatwg-fetch": "^3.6.2"
+  },
   "description": ""
 }
