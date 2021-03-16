@@ -6,8 +6,8 @@ export default function initTabNavigation() {
     tabContent[0].classList.add('ativo');
 
     function changeTab(index) {
-      tabContent.forEach(item => item.classList.remove('ativo'));
-      tabControls.forEach(item => item.classList.remove('ativo'));
+      tabContent.forEach((item) => item.classList.remove('ativo'));
+      tabControls.forEach((item) => item.classList.remove('ativo'));
       tabContent[index].classList.add('ativo');
       tabControls[index].classList.add('ativo');
     }
@@ -16,6 +16,6 @@ export default function initTabNavigation() {
       tab.addEventListener('click', () => {
         changeTab(index);
       });
-    })
+    });
   }
 }

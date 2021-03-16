@@ -13,37 +13,37 @@ export default function initHistoryApi() {
       fetchPage(this.href);
       window.history.pushState(null, null, this.href);
     }
-    
+
     async function fetchPage(url) {
       try {
         loading(true);
         const pageResponse = await fetch(url);
-        if(!pageResponse.ok) throw new Error(pageResponse.statusText);
-        const pageText = await pageResponse.text(); 
+        if (!pageResponse.ok) throw new Error(pageResponse.statusText);
+        const pageText = await pageResponse.text();
         initProdutos();
         replaceContent(pageText);
-      } catch(err) {
+      } catch (err) {
         erro(err);
       } finally {
         loading(false);
       }
     }
-    
+
     function replaceContent(content) {
       const newHtml = document.createElement('div');
       newHtml.innerHTML = content;
-    
+
       const oldContent = document.querySelector('.grid');
       const newContent = newHtml.querySelector('.grid');
-    
+
       oldContent.innerHTML = newContent.innerHTML;
       document.title = newHtml.querySelector('title').innerText;
       activeFunctions();
     }
-    
+
     window.addEventListener('popstate', () => fetchPage(window.location.href));
-    
-    linksMenu.forEach(l => l.addEventListener('click', handleClick));
-    if(window.location.href === linkProdutos) window.onload = () => { fetchPage(linkProdutos) };
+
+    linksMenu.forEach((l) => l.addEventListener('click', handleClick));
+    if (window.location.href === linkProdutos) window.onload = () => { fetchPage(linkProdutos); };
   }
 }
