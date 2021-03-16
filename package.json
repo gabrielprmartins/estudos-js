@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production ./js/script.js -o ./main.js public",
+    "build": "webpack --mode production ./js/script.js -o ./main.js",
     "dev": "webpack --mode development -w ./js/script.js -o ./main.js"
   },
   "repository": {
