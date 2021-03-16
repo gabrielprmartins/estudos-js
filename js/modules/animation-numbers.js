@@ -1,7 +1,7 @@
 export default function initAnimationNumers() {
   const numbers = document.querySelectorAll('[data-numero]');
 
-  if(numbers) {
+  if (numbers) {
     function animaNumeros() {
       numbers.forEach((n) => {
         const numbersText = +n.innerText.replace('%','');
@@ -17,12 +17,12 @@ export default function initAnimationNumers() {
     }
 
     const observerTarget = document.querySelector('.numeros-curso');
-    if(observerTarget) {
+    if (observerTarget) {
       const observer = new MutationObserver(handleMutation);
       observer.observe(observerTarget, {attributes: true});
 
       function handleMutation(mutation) {
-        if(mutation[0].target.classList.contains('anima-scroll')) {
+        if (mutation[0].target.classList.contains('anima-scroll')) {
           observer.disconnect();
           animaNumeros();
         }
@@ -30,5 +30,3 @@ export default function initAnimationNumers() {
     }
   }
 }
-
-

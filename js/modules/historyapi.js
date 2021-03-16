@@ -7,7 +7,7 @@ export default function initHistoryApi() {
   const linksMenu = Array.from(document.querySelectorAll('header a'));
   const linkProdutos = document.querySelector('[data-menu="lista"] li:first-child a').href;
 
-  if(linksMenu && loading) {
+  if (linksMenu && loading) {
     function handleClick(event) {
       event.preventDefault();
       fetchPage(this.href);

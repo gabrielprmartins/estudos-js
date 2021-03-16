@@ -1,6 +1,7 @@
 export function loading(boolean) {
-if(boolean === true) {
-  const loading = `
+  if (boolean === true) {
+    // eslint-disable-next-line no-shadow
+    const loading = `
     <div class="loading">
       <span></span>
       <span></span>
@@ -8,12 +9,10 @@ if(boolean === true) {
       <span></span>
     </div>
   `;
-  const grid = document.querySelector('.grid .center-column');
-  grid.innerHTML += loading;
-} else if(boolean === false) {
-    const loading = document.querySelector('.loading');
-    if(loading) loading.remove();
+    const grid = document.querySelector('.grid .center-column');
+    grid.innerHTML += loading;
+  } else if (boolean === false) {
+    const load = document.querySelector('.loading');
+    if (load) loading.remove();
   }
 }
-
-
