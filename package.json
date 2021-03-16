@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    
+    "build": "webpack ./js/script.js -o public ./main.js",
+    "dev": "webpack -w ./js/script.js -o public ./main.js"
   },
   "repository": {
     "type": "git",
