@@ -1,18 +1,28 @@
-export default function initWriter() {
-  const writers = document.querySelectorAll('[data-writer]');
+export default class Writer {
+  constructor(writers) {
+    this.writers = document.querySelectorAll(writers);
+  }
 
-  if (writers) {
-    function startWriter(element) {
-      element.classList.add('blink');
-      const letters = element.innerText.split('');
-      element.innerHTML = '';
-      letters.forEach((letter, i) => {
-        setTimeout(() => {
-          element.innerHTML += letter;
-        }, 150 * i);
-      });
-    }
+  configWriter(element) {
+    element.classList.add('blink');
+    this.letters = element.innerText.split('');
+    element.innerHTML = '';
+    this.writerAnimation(element);
+  }
 
-    writers.forEach((writer) => startWriter(writer));
+  writerAnimation(element) {
+    this.letters.forEach((letter, i) => {
+      setTimeout(() => {
+        element.innerHTML += letter;
+      }, 150 * i);
+    });
+  }
+
+  addEventWriters() {
+    this.writers.forEach((writer) => this.configWriter(writer));
+  }
+
+  init() {
+    this.addEventWriters();
   }
 }
