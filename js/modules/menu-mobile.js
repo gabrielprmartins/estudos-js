@@ -1,19 +1,29 @@
-export default function initMenuMobile() {
-  const menuBotao = document.querySelector('[data-menu="botao"]');
-  const menuLista = document.querySelector('[data-menu="lista"]');
-  const html = document.documentElement;
+export default class MenuMobile {
+  constructor(menuBotao, menuLista) {
+    this.menuBotao = document.querySelector(menuBotao);
+    this.menuLista = document.querySelector(menuLista);
+    this.html = document.documentElement;
 
-  function closeMenu() {
-    menuBotao.classList.remove('active');
-    menuLista.classList.remove('active');
-    setTimeout(() => html.removeEventListener('click', closeMenu));
+    this.closeMenu = this.closeMenu.bind(this);
+    this.openMenu = this.openMenu.bind(this);
   }
 
-  function openMenu() {
-    menuBotao.classList.add('active');
-    menuLista.classList.add('active');
-    setTimeout(() => html.addEventListener('click', closeMenu));
+  closeMenu() {
+    this.menuBotao.classList.remove('active');
+    this.menuLista.classList.remove('active');
+    setTimeout(() => this.html.removeEventListener('click', this.closeMenu));
   }
 
-  menuBotao.addEventListener('click', openMenu);
+  openMenu() {
+    this.menuBotao.classList.add('active');
+    this.menuLista.classList.add('active');
+    setTimeout(() => this.html.addEventListener('click', this.closeMenu));
+  }
+
+  init() {
+    if (this.menuBotao && this.menuLista) {
+      this.menuBotao.addEventListener('click', this.openMenu);
+    }
+    return this;
+  }
 }

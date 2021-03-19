@@ -1,4 +1,4 @@
-import initMenuMobile from './modules/menu-mobile.js';
+import MenuMobile from './modules/menu-mobile.js';
 import initTabNavigation from './modules/navegacao-por-tab.js';
 import initAnimationNumers from './modules/animation-numbers.js';
 import initAnimaScroll from './modules/anima-scroll.js';
@@ -6,7 +6,9 @@ import initTooltip from './modules/tooltip.js';
 import Writer from './modules/writer.js';
 import initHistoryApi from './modules/historyapi.js';
 
-initMenuMobile();
+const menuMobile = new MenuMobile('[data-menu="botao"]', '[data-menu="lista"]');
+menuMobile.init();
+
 initTabNavigation();
 initAnimationNumers();
 initAnimaScroll();
