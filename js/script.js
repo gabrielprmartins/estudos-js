@@ -1,5 +1,5 @@
 import MenuMobile from './modules/menu-mobile.js';
-import initTabNavigation from './modules/navegacao-por-tab.js';
+import TabNavigation from './modules/navegacao-por-tab.js';
 import initAnimationNumers from './modules/animation-numbers.js';
 import initAnimaScroll from './modules/anima-scroll.js';
 import Tooltip from './modules/tooltip.js';
@@ -9,7 +9,9 @@ import initHistoryApi from './modules/historyapi.js';
 const menuMobile = new MenuMobile('[data-menu="botao"]', '[data-menu="lista"]');
 menuMobile.init();
 
-initTabNavigation();
+const tabNav = new TabNavigation('[data-nav="controles"] li button', '[data-nav="conteudo"] section');
+tabNav.init();
+
 initAnimationNumers();
 initAnimaScroll();
 
@@ -22,7 +24,8 @@ writers.init();
 initHistoryApi();
 
 export function activeFunctions() {
-  initTabNavigation();
+  const tabNavActive = new TabNavigation('[data-nav="controles"] li button', '[data-nav="conteudo"] section');
+  tabNavActive.init();
   initAnimaScroll();
   const tooltipActive = new Tooltip('[data-tooltip]');
   tooltipActive.init();
