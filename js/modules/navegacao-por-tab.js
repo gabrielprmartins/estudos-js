@@ -1,21 +1,34 @@
-export default function initTabNavigation() {
-  const tabControls = document.querySelectorAll('[data-nav="controles"] li button');
-  const tabContent = document.querySelectorAll('[data-nav="conteudo"] section');
-  if (tabControls[0] && tabContent[0]) {
-    tabControls[0].classList.add('ativo');
-    tabContent[0].classList.add('ativo');
+export default class TabNavigation {
+  constructor(tabControls, tabContent) {
+    this.tabControls = document.querySelectorAll(tabControls);
+    this.tabContent = document.querySelectorAll(tabContent);
+    this.activeClass = 'ativo';
+  }
 
-    function changeTab(index) {
-      tabContent.forEach((item) => item.classList.remove('ativo'));
-      tabControls.forEach((item) => item.classList.remove('ativo'));
-      tabContent[index].classList.add('ativo');
-      tabControls[index].classList.add('ativo');
-    }
+  removeClassActive() {
+    this.tabContent.forEach((item) => item.classList.remove(this.activeClass));
+    this.tabControls.forEach((item) => item.classList.remove(this.activeClass));
+  }
 
-    tabControls.forEach((tab, index) => {
+  addClassActive(index) {
+    this.removeClassActive();
+    this.tabContent[index].classList.add(this.activeClass);
+    this.tabControls[index].classList.add(this.activeClass);
+  }
+
+  addTabEvent() {
+    this.tabControls.forEach((tab, index) => {
       tab.addEventListener('click', () => {
-        changeTab(index);
+        this.addClassActive(index);
       });
     });
+  }
+
+  init() {
+    if (this.tabControls[0] && this.tabContent[0]) {
+      this.addClassActive(0);
+      this.addTabEvent();
+    }
+    return this;
   }
 }
