@@ -1,6 +1,6 @@
 import MenuMobile from './modules/menu-mobile.js';
 import TabNavigation from './modules/navegacao-por-tab.js';
-import initAnimationNumers from './modules/animation-numbers.js';
+import AnimationNumers from './modules/animation-numbers.js';
 import initAnimaScroll from './modules/anima-scroll.js';
 import Tooltip from './modules/tooltip.js';
 import Writer from './modules/writer.js';
@@ -12,7 +12,9 @@ menuMobile.init();
 const tabNav = new TabNavigation('[data-nav="controles"] li button', '[data-nav="conteudo"] section');
 tabNav.init();
 
-initAnimationNumers();
+const animationNumbers = new AnimationNumers('[data-numero]', 'anima-scroll', '.numeros-curso');
+animationNumbers.init();
+
 initAnimaScroll();
 
 const tooltip = new Tooltip('[data-tooltip]');
