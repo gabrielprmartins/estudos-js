@@ -1,10 +1,10 @@
-import debounce from './debounce.js';
+import debounce from "./debounce.js";
 
 export default class AnimaScroll {
   constructor(sections) {
     this.sections = Array.from(document.querySelectorAll(sections));
     this.windowMetade = window.innerHeight * 0.7;
-    this.activeClass = 'anima-scroll';
+    this.activeClass = "anima-scroll";
 
     this.checkDistance = debounce(this.checkDistance.bind(this), 50);
   }
@@ -33,12 +33,12 @@ export default class AnimaScroll {
     if (this.sections.length) {
       this.getDistance();
       this.checkDistance();
-      window.addEventListener('scroll', this.checkDistance);
+      window.addEventListener("scroll", this.checkDistance);
     }
     return this;
   }
 
   stop() {
-    window.removeEventListener('scroll', this.checkDistance);
+    window.removeEventListener("scroll", this.checkDistance);
   }
 }
