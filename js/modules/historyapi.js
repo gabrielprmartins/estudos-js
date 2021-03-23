@@ -1,6 +1,6 @@
-import { activeFunctions } from '../script.js';
-import { loading } from './loading.js';
-import { erro } from './error.js';
+import activeFunctions from '../script.js';
+import loading from './loading.js';
+import erro from './error.js';
 import { initProdutos } from './produtos.js';
 
 export default function initHistoryApi() {

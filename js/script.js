@@ -25,7 +25,7 @@ writers.init();
 
 initHistoryApi();
 
-export function activeFunctions() {
+export default function activeFunctions() {
   initAnimaScroll();
   const tabNavActive = new TabNavigation('[data-nav="controles"] li button', '[data-nav="conteudo"] section');
   tabNavActive.init();

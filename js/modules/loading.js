@@ -1,4 +1,4 @@
-export function loading(boolean) {
+export default function loading(boolean) {
   if (boolean === true) {
     // eslint-disable-next-line no-shadow
     const loading = `
