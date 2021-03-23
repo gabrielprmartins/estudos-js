@@ -23,6 +23,9 @@ export default class Writer {
   }
 
   init() {
-    this.addEventWriters();
+    if (this.writers.length) {
+      this.addEventWriters();
+    }
+    return this;
   }
 }
