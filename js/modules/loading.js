@@ -1,4 +1,4 @@
-export function loading(boolean) {
+export default function loading(boolean) {
   if (boolean === true) {
     // eslint-disable-next-line no-shadow
     const loading = `
@@ -13,6 +13,6 @@ export function loading(boolean) {
     grid.innerHTML += loading;
   } else if (boolean === false) {
     const load = document.querySelector('.loading');
-    if (load) loading.remove();
+    if (load) load.remove();
   }
 }
