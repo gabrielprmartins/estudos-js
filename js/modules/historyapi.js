@@ -14,6 +14,7 @@ export default function initHistoryApi() {
       window.history.pushState(null, null, this.href);
     }
 
+    // repartir em um arquivo de função única
     async function fetchPage(url) {
       try {
         loading(true);
