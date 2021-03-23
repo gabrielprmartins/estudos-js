@@ -4,7 +4,7 @@ import AnimationNumers from './modules/animation-numbers.js';
 import Tooltip from './modules/tooltip.js';
 import Writer from './modules/writer.js';
 import HistoryApi from './modules/historyapi.js';
-import initAnimaScroll from './modules/anima-scroll.js';
+import AnimaScroll from './modules/anima-scroll.js';
 
 const menuMobile = new MenuMobile('[data-menu="botao"]', '[data-menu="lista"]');
 menuMobile.init();
@@ -15,7 +15,8 @@ tabNav.init();
 const animationNumbers = new AnimationNumers('[data-numero]', 'anima-scroll', '.numeros-curso');
 animationNumbers.init();
 
-initAnimaScroll();
+const animaScroll = new AnimaScroll('[data-scroll]');
+animaScroll.init();
 
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
@@ -29,7 +30,8 @@ historyApi.init();
 export default function activeFunctions() {
   const writersActive = new Writer('[data-writer]');
   writersActive.init();
-  initAnimaScroll();
+  const animaScrollActive = new AnimaScroll('[data-scroll]');
+  animaScrollActive.init();
   const tabNavActive = new TabNavigation('[data-nav="controles"] li button', '[data-nav="conteudo"] section');
   tabNavActive.init();
   const tooltipActive = new Tooltip('[data-tooltip]');
