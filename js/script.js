@@ -5,6 +5,9 @@ import Tooltip from './modules/tooltip.js';
 import Writer from './modules/writer.js';
 import HistoryApi from './modules/historyapi.js';
 import AnimaScroll from './modules/anima-scroll.js';
+import activeFunctions from './modules/active-functions.js';
+
+activeFunctions();
 
 const menuMobile = new MenuMobile('[data-menu="botao"]', '[data-menu="lista"]');
 menuMobile.init();
@@ -26,14 +29,3 @@ writers.init();
 
 const historyApi = new HistoryApi('header a', '.grid');
 historyApi.init();
-
-export default function activeFunctions() {
-  const writersActive = new Writer('[data-writer]');
-  writersActive.init();
-  const animaScrollActive = new AnimaScroll('[data-scroll]');
-  animaScrollActive.init();
-  const tabNavActive = new TabNavigation('[data-nav="controles"] li button', '[data-nav="conteudo"] section');
-  tabNavActive.init();
-  const tooltipActive = new Tooltip('[data-tooltip]');
-  tooltipActive.init();
-}
