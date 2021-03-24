@@ -1,6 +1,6 @@
 import loading from './loading.js';
 import erro from './error.js';
-import activeFunctions from '../script.js';
+import activeFunctions from './active-functions.js';
 
 export function initProdutos() {
   async function fetchProdutos(url) {
