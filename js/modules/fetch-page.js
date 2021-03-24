@@ -1,6 +1,6 @@
 import loading from './loading.js';
 import erro from './error.js';
-import activeFunctions from './active-functions.js';
+import activeFunctions from '../script';
 
 export default class FetchPage {
   constructor(url, callback, oldContent, toReplaceContent = true) {
