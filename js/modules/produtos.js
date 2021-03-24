@@ -1,6 +1,7 @@
 import loading from './loading.js';
 import erro from './error.js';
 import activeFunctions from './active-functions';
+import permalinkProducts from './produto-pagina.js';
 
 export function initProdutos() {
   async function fetchProdutos(url) {
@@ -21,6 +22,7 @@ export function initProdutos() {
     activeFunctions();
     const produtosGrid = document.querySelector('[data-produtos]');
     if (produtosGrid) {
+      produtosGrid.classList.add('get-in'); // animação
       produtos.forEach((produto) => {
         produtosGrid.innerHTML += `
           <div class="produto" data-produto-id="${produto.id}">
@@ -32,6 +34,13 @@ export function initProdutos() {
           </div>
         `;
       });
+
+      const produtosDiv = document.querySelectorAll('.produto');
+      if (produtosDiv) {
+        produtosDiv.forEach((produto) => {
+          produto.addEventListener('click', (e) => permalinkProducts(e, produtos));
+        });
+      }
     }
   }
 
