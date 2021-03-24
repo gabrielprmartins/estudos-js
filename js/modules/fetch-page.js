@@ -3,10 +3,11 @@ import erro from './error.js';
 import activeFunctions from './active-functions.js';
 
 export default class FetchPage {
-  constructor(url, callback, oldContent) {
+  constructor(url, callback, oldContent, toReplaceContent = true) {
     this.url = url;
-    this.oldContent = document.querySelector(oldContent);
+    if (oldContent) this.oldContent = document.querySelector(oldContent);
     this.callback = callback;
+    this.toReplaceContent = toReplaceContent;
   }
 
   async fetchPage() {
@@ -15,7 +16,7 @@ export default class FetchPage {
       this.pageResponse = await fetch(this.url);
       if (!this.pageResponse.ok) throw new Error(this.pageResponse.statusText);
       this.pageText = await this.pageResponse.text();
-      this.replaceContent(this.pageText);
+      if (this.toReplaceContent) this.replaceContent(this.pageText);
       if (this.callback) this.callback();
       activeFunctions();
     } catch (err) {
