@@ -1,6 +1,6 @@
 import loading from './loading.js';
 import erro from './error.js';
-import activeFunctions from '../script';
+import activeFunctions from './active-functions.js';
 import permalinkProducts from './produto-pagina.js';
 
 export function initProdutos() {
