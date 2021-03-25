@@ -13,6 +13,6 @@ export default function activeFunctions() {
   tabNavActive.init();
   const tooltipActive = new Tooltip('[data-tooltip]');
   tooltipActive.init();
-  const fetchPostsActive = new FetchPosts('.posts-container', 9);
+  const fetchPostsActive = new FetchPosts('.posts-container', 9, '[data-post-more]');
   fetchPostsActive.init();
 }

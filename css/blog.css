@@ -59,6 +59,14 @@
   font-weight: 700;
 }
 
+.more-posts {
+  display: none;
+}
+
+.more-posts.active {
+  display: initial;
+}
+
 @media (max-width: 700px) {
   .posts-container {
     column-count: 2;
