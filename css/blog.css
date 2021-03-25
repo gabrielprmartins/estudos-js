@@ -3,6 +3,10 @@
   margin: 60px auto 30px;
 }
 
+.posts-container.get-in {
+  animation: show-down .3s forwards;
+}
+
 .post {
   padding: 30px;
   background-color: #3391ff;

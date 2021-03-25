@@ -5,6 +5,10 @@ export default class FetchPosts {
     this.page = 1;
   }
 
+  addAnimationClass() {
+    this.postsContainer.classList.add('get-in');
+  }
+
   async fetchPosts() {
     this.response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${this.postsLimit}&_page=${this.page
     }`);
@@ -29,6 +33,7 @@ export default class FetchPosts {
   init() {
     if (this.postsContainer) {
       this.addPostsIntoDOM();
+      this.addAnimationClass();
     }
     return this;
   }
