@@ -61,6 +61,19 @@
 
 .more-posts {
   display: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3391ff;
+  color: #fff;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: .3s;
+}
+
+.more-posts:hover {
+  transform: scale(1.1);
+  background-color: #0076FF;
 }
 
 .more-posts.active {
