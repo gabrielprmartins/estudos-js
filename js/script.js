@@ -6,6 +6,7 @@ import Writer from './modules/writer.js';
 import HistoryApi from './modules/historyapi.js';
 import AnimaScroll from './modules/anima-scroll.js';
 import activeFunctions from './modules/active-functions.js';
+import FetchPosts from './modules/fetch-posts.js';
 
 activeFunctions();
 
@@ -29,3 +30,6 @@ writers.init();
 
 const historyApi = new HistoryApi('header a', '.grid');
 historyApi.init();
+
+const fetchPosts = new FetchPosts('.posts-container', 9);
+fetchPosts.init();
