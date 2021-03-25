@@ -23,7 +23,7 @@ img {
 
 /* body */
 body {
-  background: url(/assets/bg.svg) repeat top;
+  background: url(/assets/bg.png) repeat top;
   font-family: Roboto, sans-serif;
   color: #333;
 }
