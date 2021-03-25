@@ -30,7 +30,7 @@ export default class FetchPosts {
     `).join('');
 
     this.postsContainer.innerHTML += this.postTemplate;
-    this.showMoreButton();
+    // this.showMoreButton();
   }
 
   showMoreButton() {
