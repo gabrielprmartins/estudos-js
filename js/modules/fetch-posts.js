@@ -1,10 +1,8 @@
 export default class FetchPosts {
-  constructor(postsContainer, postsLimit, moreButton) {
+  constructor(postsContainer, postsLimit) {
     this.postsContainer = document.querySelector(postsContainer);
     this.postsLimit = postsLimit;
     this.page = 1;
-    this.activeButtonClass = 'active';
-    this.buttonMore = document.querySelector(moreButton);
   }
 
   addAnimationClass() {
@@ -30,35 +28,12 @@ export default class FetchPosts {
     `).join('');
 
     this.postsContainer.innerHTML += this.postTemplate;
-    // this.showMoreButton();
-  }
-
-  showMoreButton() {
-    this.buttonMore.classList.add(this.activeButtonClass);
-    this.hiddenMoreButton();
-  }
-
-  hiddenMoreButton() {
-    if (this.page > 12) {
-      this.buttonMore.classList.remove(this.activeButtonClass);
-    }
-  }
-
-  // corrigir erro
-  getNextPosts() {
-    this.page++;
-    this.addPostsIntoDOM();
-  }
-
-  addMoreButtonEvent() {
-    this.buttonMore.addEventListener('click', this.getNextPosts);
   }
 
   init() {
     if (this.postsContainer) {
       this.addPostsIntoDOM();
       this.addAnimationClass();
-      this.addMoreButtonEvent();
     }
     return this;
   }

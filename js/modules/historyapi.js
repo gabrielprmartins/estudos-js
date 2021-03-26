@@ -1,4 +1,5 @@
 import { initProdutos } from './produtos.js';
+import FetchPosts from './fetch-posts.js';
 import FetchPage from './fetch-page.js';
 
 export default class HistoryApi {
@@ -6,6 +7,7 @@ export default class HistoryApi {
     this.linksMenu = Array.from(document.querySelectorAll(links));
     this.oldContent = changeContent;
     this.linkProdutos = document.querySelector('[data-menu="lista"] li:first-child a').href;
+    this.linkBlog = document.querySelector('[data-menu="lista"] li:nth-child(2) a').href;
 
     this.addLinksEvent = this.addLinksEvent.bind(this);
     this.onClickLink = this.onClickLink.bind(this);
@@ -23,19 +25,31 @@ export default class HistoryApi {
   onClickLink(event) {
     event.preventDefault();
     this.fetchOwnPage(event.currentTarget.href, initProdutos);
+    this.fetchOwnPage(event.currentTarget.href, this.initPosts);
     window.history.pushState(null, null, event.currentTarget.href);
   }
 
   onPopStatePage() {
     window.addEventListener('popstate', () => {
       this.fetchOwnPage(window.location.href, initProdutos);
+      this.fetchOwnPage(window.location.href, this.initPosts);
     });
   }
 
-  ifProductsPage() {
+  initPosts() {
+    this.fetchPosts = new FetchPosts('.posts-container', 9);
+    this.fetchPosts.init();
+  }
+
+  ifPage() {
     if (window.location.href === this.linkProdutos) {
       window.onload = () => {
         this.fetchOwnPage(this.linkProdutos, initProdutos);
+      };
+    }
+    if (window.location.href === this.linkBlog) {
+      window.onload = () => {
+        this.fetchOwnPage(this.linkBlog, this.initPosts);
       };
     }
   }
@@ -44,7 +58,7 @@ export default class HistoryApi {
     if (this.linksMenu.length && this.oldContent) {
       this.addLinksEvent();
       this.onPopStatePage();
-      this.ifProductsPage();
+      this.ifPage();
     }
     return this;
   }
