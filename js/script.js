@@ -5,7 +5,6 @@ import Tooltip from './modules/tooltip.js';
 import Writer from './modules/writer.js';
 import HistoryApi from './modules/historyapi.js';
 import AnimaScroll from './modules/anima-scroll.js';
-import FetchPosts from './modules/fetch-posts.js';
 
 const menuMobile = new MenuMobile('[data-menu="botao"]', '[data-menu="lista"]');
 menuMobile.init();
@@ -27,6 +26,3 @@ writers.init();
 
 const historyApi = new HistoryApi('header a', '.grid');
 historyApi.init();
-
-const fetchPosts = new FetchPosts('.posts-container', 9, '[data-post-more]');
-fetchPosts.init();
