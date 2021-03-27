@@ -1,5 +1,3 @@
-import loading from './loading.js';
-
 export default function initPosts() {
   const postsContainer = document.querySelector('.posts-container');
   const buscador = document.querySelector('[data-post="busca"]');
@@ -39,17 +37,17 @@ export default function initPosts() {
 
   const removeLoading = (loader) => {
     setTimeout(() => {
-      postsContainer.removeChild(loader);
+      loader.classList.remove('active');
       getNextPosts();
     }, 1000);
   };
 
   const showLoading = () => {
-    const loaderHtml = loading();
-    const loader = document.createElement('div');
-    loader.innerHTML = loaderHtml;
-    postsContainer.appendChild(loader);
-    removeLoading(loader);
+    const loader = document.querySelector('.loading-posts');
+    if (loader) {
+      loader.classList.add('active');
+      removeLoading(loader);
+    }
   };
 
   const onWindowScroll = () => {

@@ -4,13 +4,6 @@
   position: relative;
 }
 
-.posts-container  .loading {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -60px;
-}
-
 .posts-container.get-in {
   animation: show-down .3s forwards;
 }
