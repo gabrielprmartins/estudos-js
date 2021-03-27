@@ -1,23 +1,23 @@
-export default class FetchPosts {
-  constructor(postsContainer, postsLimit) {
-    this.postsContainer = document.querySelector(postsContainer);
-    this.postsLimit = postsLimit;
-    this.page = 1;
-  }
+import loading from './loading.js';
 
-  addAnimationClass() {
-    this.postsContainer.classList.add('get-in');
-  }
+export default function initPosts() {
+  const postsContainer = document.querySelector('.posts-container');
+  const postsLimit = 9;
+  let page = 1;
 
-  async fetchPosts() {
-    this.response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${this.postsLimit}&_page=${this.page
+  const addAnimationClass = () => {
+    postsContainer.classList.add('get-in');
+  };
+
+  const fetchPosts = async () => {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${postsLimit}&_page=${page
     }`);
-    return this.response.json();
-  }
+    return response.json();
+  };
 
-  async addPostsIntoDOM() {
-    this.posts = await this.fetchPosts();
-    this.postTemplate = this.posts.map(({ id, title, body }) => `
+  const addPostsIntoDOM = async () => {
+    const posts = await fetchPosts();
+    const postTemplate = posts.map(({ id, title, body }) => `
       <div class="post">
         <div class="post-info">
           <h3 class="post-title">${title}</h3>
@@ -27,14 +27,45 @@ export default class FetchPosts {
       </div>
     `).join('');
 
-    this.postsContainer.innerHTML += this.postTemplate;
-  }
+    postsContainer.innerHTML += postTemplate;
+  };
 
-  init() {
-    if (this.postsContainer) {
-      this.addPostsIntoDOM();
-      this.addAnimationClass();
+  const getNextPosts = () => {
+    page++;
+    addPostsIntoDOM();
+  };
+
+  const removeLoading = () => {
+    setTimeout(() => {
+      loading(false);
+      getNextPosts();
+    }, 1000);
+  };
+
+  const showLoading = () => {
+    loading(true, postsContainer);
+    removeLoading();
+  };
+
+  const onWindowScroll = () => {
+    const { clientHeight, scrollHeight, scrollTop } = document.documentElement;
+    const isPageBottom = scrollTop + clientHeight >= scrollHeight - 10;
+    if (isPageBottom) {
+      showLoading();
     }
-    return this;
-  }
+  };
+
+  const addEventOnWindowScroll = () => {
+    window.addEventListener('scroll', onWindowScroll);
+  };
+
+  const init = () => {
+    if (postsContainer) {
+      addPostsIntoDOM();
+      addAnimationClass();
+      addEventOnWindowScroll();
+    }
+  };
+
+  init();
 }
