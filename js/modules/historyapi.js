@@ -1,5 +1,5 @@
 import { initProdutos } from './produtos.js';
-import FetchPosts from './fetch-posts.js';
+import initPosts from './fetch-posts.js';
 import FetchPage from './fetch-page.js';
 
 export default class HistoryApi {
@@ -25,20 +25,15 @@ export default class HistoryApi {
   onClickLink(event) {
     event.preventDefault();
     this.fetchOwnPage(event.currentTarget.href, initProdutos);
-    this.fetchOwnPage(event.currentTarget.href, this.initPosts);
+    this.fetchOwnPage(event.currentTarget.href, initPosts);
     window.history.pushState(null, null, event.currentTarget.href);
   }
 
   onPopStatePage() {
     window.addEventListener('popstate', () => {
       this.fetchOwnPage(window.location.href, initProdutos);
-      this.fetchOwnPage(window.location.href, this.initPosts);
+      this.fetchOwnPage(window.location.href, initPosts);
     });
-  }
-
-  initPosts() {
-    this.fetchPosts = new FetchPosts('.posts-container', 9);
-    this.fetchPosts.init();
   }
 
   ifPage() {
@@ -49,7 +44,7 @@ export default class HistoryApi {
     }
     if (window.location.href === this.linkBlog) {
       window.onload = () => {
-        this.fetchOwnPage(this.linkBlog, this.initPosts);
+        this.fetchOwnPage(this.linkBlog, initPosts);
       };
     }
   }

@@ -1,6 +1,14 @@
 .posts-container {
   column-count: 3;
   margin: 60px auto 30px;
+  position: relative;
+}
+
+.posts-container  .loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -60px;
 }
 
 .posts-container.get-in {
