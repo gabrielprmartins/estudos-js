@@ -6,7 +6,7 @@ export default function permalinkProducts(e, products) {
   produtosGrid.classList.remove('get-in'); // animação
   const tituloPrincipal = document.querySelector('.titulo-principal');
 
-  function getOnlyProduct() {
+  const getOnlyProduct = () => {
     const produtoId = document.querySelectorAll('[data-produto-id]');
     products.forEach((produto, i) => {
       if (e.currentTarget === produtoId[i]) {
@@ -26,21 +26,27 @@ export default function permalinkProducts(e, products) {
         document.title += ` | ${produto.nome}`;
       }
     });
-  }
+  };
 
-  function fetchPageProducts() {
+  const fetchPageProducts = () => {
     const linkProdutos = document.querySelector('[data-menu="lista"] li:first-child a').href;
     const fetchPage = new FetchPage(linkProdutos, initProdutos, '.center-column');
     return fetchPage.init();
-  }
+  };
 
-  function handleBackButton() {
+  const handleBackButton = () => {
     const btnVoltarProdutos = document.querySelector('[data-produto="voltar"]');
     if (btnVoltarProdutos) {
       btnVoltarProdutos.addEventListener('click', fetchPageProducts);
     }
-  }
+  };
 
-  getOnlyProduct();
-  handleBackButton();
+  const init = () => {
+    if (produtosGrid) {
+      getOnlyProduct();
+      handleBackButton();
+    }
+  };
+
+  init();
 }
