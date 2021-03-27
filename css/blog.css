@@ -67,6 +67,21 @@
   font-weight: 700;
 }
 
+.busca {
+  margin: 30px 0px -30px;
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,.15);
+  border-radius: 5px;
+  transition: .3s;
+}
+
+.busca:focus, .busca:hover {
+  transform: scale(1.03);
+  outline: none;
+}
+
 @media (max-width: 700px) {
   .posts-container {
     column-count: 2;
