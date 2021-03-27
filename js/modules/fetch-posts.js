@@ -1,7 +1,7 @@
-import loading from './loading.js';
-
 export default function initPosts() {
   const postsContainer = document.querySelector('.posts-container');
+  const buscador = document.querySelector('[data-post="busca"]');
+
   const postsLimit = 9;
   let page = 1;
 
@@ -37,17 +37,17 @@ export default function initPosts() {
 
   const removeLoading = (loader) => {
     setTimeout(() => {
-      postsContainer.removeChild(loader);
+      loader.classList.remove('active');
       getNextPosts();
     }, 1000);
   };
 
   const showLoading = () => {
-    const loaderHtml = loading();
-    const loader = document.createElement('div');
-    loader.innerHTML = loaderHtml;
-    postsContainer.appendChild(loader);
-    removeLoading(loader);
+    const loader = document.querySelector('.loading-posts');
+    if (loader) {
+      loader.classList.add('active');
+      removeLoading(loader);
+    }
   };
 
   const onWindowScroll = () => {
@@ -62,11 +62,35 @@ export default function initPosts() {
     window.addEventListener('scroll', onWindowScroll);
   };
 
+  const showPostIfMatchInputValue = (inputValue) => (post) => {
+    const postTitle = post.querySelector('.post-title').textContent.toLowerCase();
+    const postBody = post.querySelector('.post-body').textContent.toLowerCase();
+
+    const matchSearch = postTitle.includes(inputValue) || postBody.includes(inputValue);
+    if (matchSearch) {
+      post.style.display = 'block';
+      return;
+    }
+    post.style.display = 'none';
+  };
+
+  const handleInputValue = (event) => {
+    const inputValue = event.target.value.toLowerCase();
+    const posts = document.querySelectorAll('.post');
+
+    posts.forEach(showPostIfMatchInputValue(inputValue));
+  };
+
+  const addSearchingEvent = () => {
+    buscador.addEventListener('input', handleInputValue);
+  };
+
   const init = () => {
     if (postsContainer) {
       addPostsIntoDOM();
       addAnimationClass();
       addEventOnWindowScroll();
+      addSearchingEvent();
     }
   };
 
