@@ -35,16 +35,19 @@ export default function initPosts() {
     addPostsIntoDOM();
   };
 
-  const removeLoading = () => {
+  const removeLoading = (loader) => {
     setTimeout(() => {
-      loading(false);
+      postsContainer.removeChild(loader);
       getNextPosts();
     }, 1000);
   };
 
   const showLoading = () => {
-    loading(true, postsContainer);
-    removeLoading();
+    const loaderHtml = loading();
+    const loader = document.createElement('div');
+    loader.innerHTML = loaderHtml;
+    postsContainer.appendChild(loader);
+    removeLoading(loader);
   };
 
   const onWindowScroll = () => {

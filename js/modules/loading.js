@@ -1,7 +1,6 @@
 export default function loading(boolean, contentLoad = null) {
-  if (boolean === true) {
-    // eslint-disable-next-line no-shadow
-    const loading = `
+  // eslint-disable-next-line no-shadow
+  const loading = `
     <div class="loading">
       <span></span>
       <span></span>
@@ -9,6 +8,7 @@ export default function loading(boolean, contentLoad = null) {
       <span></span>
     </div>
   `;
+  if (boolean === true) {
     const grid = document.querySelector('.grid .center-column');
     grid.innerHTML += loading;
 
@@ -18,4 +18,5 @@ export default function loading(boolean, contentLoad = null) {
     const load = document.querySelector('.loading');
     if (load) load.remove();
   }
+  return loading;
 }
