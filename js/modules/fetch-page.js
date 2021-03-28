@@ -1,5 +1,4 @@
 import erro from './error.js';
-import activeFunctions from './active-functions.js';
 
 export default class FetchPage {
   constructor(url, callback, oldContent, toReplaceContent = true) {
@@ -16,7 +15,6 @@ export default class FetchPage {
       this.pageText = await this.pageResponse.text();
       if (this.toReplaceContent) this.replaceContent(this.pageText);
       if (this.callback) this.callback();
-      activeFunctions();
     } catch (err) {
       erro(err);
     }

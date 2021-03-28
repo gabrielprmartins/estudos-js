@@ -1,6 +1,5 @@
 import loading from './loading.js';
 import erro from './error.js';
-import activeFunctions from './active-functions.js';
 import permalinkProducts from './produto-pagina.js';
 
 export function initProdutos() {
@@ -19,7 +18,6 @@ export function initProdutos() {
   }
 
   function getProdutos(produtos) {
-    activeFunctions();
     const produtosGrid = document.querySelector('[data-produtos]');
     if (produtosGrid) {
       produtosGrid.classList.add('get-in'); // animação
