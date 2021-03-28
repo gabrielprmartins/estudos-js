@@ -43,7 +43,7 @@ export default function initPosts() {
   };
 
   const showLoading = () => {
-    const loader = document.querySelector('.loading-posts');
+    const loader = document.querySelector('.loading');
     if (loader) {
       loader.classList.add('active');
       removeLoading(loader);

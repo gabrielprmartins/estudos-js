@@ -1,22 +1,14 @@
-export default function loading(boolean, contentLoad = null) {
-  // eslint-disable-next-line no-shadow
-  const loading = `
-    <div class="loading">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  `;
-  if (boolean === true) {
-    const grid = document.querySelector('.grid .center-column');
-    grid.innerHTML += loading;
+export default function loading(boolean = true) {
+  const loader = document.querySelector('.loading');
 
-    const loadContent = document.querySelector(contentLoad);
-    if (loadContent) loadContent.appendChild(loading);
-  } else if (boolean === false) {
-    const load = document.querySelector('.loading');
-    if (load) load.remove();
-  }
-  return loading;
+  const showLoader = () => {
+    if (loader) loader.classList.add('active');
+  };
+
+  const removeLoader = () => {
+    if (loader) loader.classList.remove('active');
+  };
+
+  if (boolean) showLoader();
+  if (!boolean) removeLoader();
 }
