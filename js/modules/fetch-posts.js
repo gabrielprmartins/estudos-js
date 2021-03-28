@@ -33,8 +33,10 @@ export default function initPosts() {
   };
 
   const getNextPosts = () => {
-    page++;
-    addPostsIntoDOM();
+    setTimeout(() => {
+      page++;
+      addPostsIntoDOM();
+    }, 300);
   };
 
   const showAndRemoveLoading = () => {
@@ -49,7 +51,7 @@ export default function initPosts() {
     const { clientHeight, scrollHeight, scrollTop } = document.documentElement;
     const isPageBottom = scrollTop + clientHeight >= scrollHeight - 10;
     if (isPageBottom) {
-      showAndRemoveLoading();
+      if (page < 12) showAndRemoveLoading();
     }
   };
 
