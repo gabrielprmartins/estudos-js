@@ -48,6 +48,7 @@ export default function initPosts() {
   const onWindowScroll = () => {
     const { clientHeight, scrollHeight, scrollTop } = document.documentElement;
     const isPageBottom = scrollTop + clientHeight >= scrollHeight - 10;
+
     if (isPageBottom) {
       if (page < 12) showAndRemoveLoading();
     }

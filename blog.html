@@ -25,6 +25,7 @@
         <li><a href="produtos.html" class="btn-produtos">Produtos</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contato.html">Contato</a></li>
+        <li><a class="abrir-modal" data-modal="abrir">Login ➜</a></li>
       </ul>
     </nav>
   </header>
@@ -47,6 +48,20 @@
   <footer class="copy">
     <p>&copy; Todos os direitos reservados</p>
   </footer>
+
+  <div class="modal-container" data-modal="container">
+    <div class="modal">
+      <span class="fechar-modal" data-modal="fechar">&times;</span>
+      <h2 class="titulo">Login</h2>
+      <form class="form-modal">
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email">
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha">
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
 
   <script type="module" src="main.js/main.js"></script>
 </body>
