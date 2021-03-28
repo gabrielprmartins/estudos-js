@@ -1,3 +1,5 @@
+import loading from './loading.js';
+
 export default function initPosts() {
   const postsContainer = document.querySelector('.posts-container');
   const buscador = document.querySelector('[data-post="busca"]');
@@ -35,26 +37,19 @@ export default function initPosts() {
     addPostsIntoDOM();
   };
 
-  const removeLoading = (loader) => {
+  const showAndRemoveLoading = () => {
+    loading(true);
     setTimeout(() => {
-      loader.classList.remove('active');
+      loading(false);
       getNextPosts();
     }, 1000);
-  };
-
-  const showLoading = () => {
-    const loader = document.querySelector('.loading-posts');
-    if (loader) {
-      loader.classList.add('active');
-      removeLoading(loader);
-    }
   };
 
   const onWindowScroll = () => {
     const { clientHeight, scrollHeight, scrollTop } = document.documentElement;
     const isPageBottom = scrollTop + clientHeight >= scrollHeight - 10;
     if (isPageBottom) {
-      showLoading();
+      showAndRemoveLoading();
     }
   };
 
