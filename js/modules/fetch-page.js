@@ -1,4 +1,3 @@
-import loading from './loading.js';
 import erro from './error.js';
 import activeFunctions from './active-functions.js';
 
@@ -12,7 +11,6 @@ export default class FetchPage {
 
   async fetchPage() {
     try {
-      loading(true);
       this.pageResponse = await fetch(this.url);
       if (!this.pageResponse.ok) throw new Error(this.pageResponse.statusText);
       this.pageText = await this.pageResponse.text();
@@ -21,8 +19,6 @@ export default class FetchPage {
       activeFunctions();
     } catch (err) {
       erro(err);
-    } finally {
-      loading(false);
     }
   }
 
