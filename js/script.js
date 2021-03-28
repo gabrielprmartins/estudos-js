@@ -3,9 +3,10 @@ import TabNavigation from './modules/navegacao-por-tab.js';
 import AnimationNumers from './modules/animation-numbers.js';
 import Tooltip from './modules/tooltip.js';
 import Writer from './modules/writer.js';
-import HistoryApi from './modules/historyapi.js';
 import AnimaScroll from './modules/anima-scroll.js';
 import Modal from './modules/modal.js';
+import initPosts from './modules/fetch-posts.js';
+import { initProdutos } from './modules/produtos.js';
 
 const menuMobile = new MenuMobile('[data-menu="botao"]', '[data-menu="lista"]');
 menuMobile.init();
@@ -25,8 +26,8 @@ tooltip.init();
 const writers = new Writer('[data-writer]');
 writers.init();
 
-const historyApi = new HistoryApi('header a', '.grid');
-historyApi.init();
-
 const modal = new Modal('[data-modal="container"]', '[data-modal="abrir"]', '[data-modal="fechar"]');
 modal.init();
+
+initPosts();
+initProdutos();
