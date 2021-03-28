@@ -33,10 +33,8 @@ export default function initPosts() {
   };
 
   const getNextPosts = () => {
-    setTimeout(() => {
-      page++;
-      addPostsIntoDOM();
-    }, 300);
+    page++;
+    addPostsIntoDOM();
   };
 
   const showAndRemoveLoading = () => {
