@@ -1,4 +1,5 @@
 import loading from './loading.js';
+import debounce from './debounce.js';
 
 export default function initPosts() {
   const postsContainer = document.querySelector('.posts-container');
@@ -55,7 +56,7 @@ export default function initPosts() {
   };
 
   const addEventOnWindowScroll = () => {
-    window.addEventListener('scroll', onWindowScroll);
+    window.addEventListener('scroll', debounce(onWindowScroll), 200);
   };
 
   const showPostIfMatchInputValue = (inputValue) => (post) => {
