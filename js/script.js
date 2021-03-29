@@ -33,5 +33,5 @@ modal.init();
 initPosts();
 initProdutos();
 
-const contador = new Contador('.contador');
+const contador = new Contador('[data-semana]');
 contador.init();

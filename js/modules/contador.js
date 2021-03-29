@@ -15,7 +15,8 @@ export default class Contador {
 
   getTimeToOpen() {
     this.getActualTime();
-    this.hora = this.horarioSemana[0] - this.horarioAtual;
+    this.horarioSemana.forEach((hora) => hora > 0);
+    this.hora = (this.horarioSemana[0] - this.horarioAtual);
     this.minuto = 59 - this.minutoAtual;
     this.segundo = 59 - this.segundoAtual;
   }
@@ -24,11 +25,7 @@ export default class Contador {
     this.funcionamento.classList.remove('aberto');
     this.count = setInterval(() => {
       this.getTimeToOpen();
-      if (this.hora > 0) {
-        this.funcionamento.innerText = `${this.hora}:${this.minuto}:${this.segundo}`;
-      } else {
-        this.open();
-      }
+      this.funcionamento.innerText = `${this.hora}:${this.minuto}:${this.segundo}`;
     }, 1000);
 
     return this.count;
@@ -37,20 +34,24 @@ export default class Contador {
   open() {
     clearInterval(this.count);
     this.funcionamento.classList.add('aberto');
-    this.funcionamento.innerText = 'Abertos';
+    this.funcionamento.innerText = 'Aberto';
   }
 
   onDayMatches() {
+    this.getActualTime();
     this.semanaAberto = this.diasSemana.indexOf(this.diaAtual) !== -1;
     this.horarioAberto = (this.horarioAtual >= this.horarioSemana[0]
       && this.horarioAtual < this.horarioSemana[1]);
 
     this.initCountDown();
+    if (this.semanaAberto && this.horarioAberto) {
+      this.open();
+    }
   }
 
   init() {
     if (this.funcionamento && this.diasSemana && this.horarioSemana) {
-      this.onDayMatches();
+      // this.onDayMatches();
     }
     return this;
   }
