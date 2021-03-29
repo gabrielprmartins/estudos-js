@@ -7,6 +7,7 @@ import AnimaScroll from './modules/anima-scroll.js';
 import Modal from './modules/modal.js';
 import initPosts from './modules/fetch-posts.js';
 import { initProdutos } from './modules/produtos.js';
+import Contador from './modules/contador.js';
 
 const menuMobile = new MenuMobile('[data-menu="botao"]', '[data-menu="lista"]');
 menuMobile.init();
@@ -31,3 +32,6 @@ modal.init();
 
 initPosts();
 initProdutos();
+
+const contador = new Contador('.contador');
+contador.init();
