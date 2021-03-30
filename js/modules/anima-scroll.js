@@ -6,7 +6,7 @@ export default class AnimaScroll {
     this.windowMetade = window.pageYOffset + ((window.innerHeight * 3) / 4);
     this.activeClass = 'anima-scroll';
 
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 0);
   }
 
   getDistance() {
