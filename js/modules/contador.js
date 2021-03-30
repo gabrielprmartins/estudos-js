@@ -1,58 +1,83 @@
-export default class Contador {
-  constructor(funcionamento) {
-    this.funcionamento = document.querySelector(funcionamento);
-    this.diasSemana = this.funcionamento.dataset.semana.split(',').map(Number);
-    this.horarioSemana = this.funcionamento.dataset.horario.split(',').map(Number);
-  }
+export default function contador() {
+  const operation = document.querySelector('[data-semana]');
+  const activeClass = 'aberto';
 
-  getActualTime() {
-    this.dataAtual = new Date();
-    this.diaAtual = this.dataAtual.getDay();
-    this.horarioAtual = this.dataAtual.getHours();
-    this.minutoAtual = this.dataAtual.getMinutes();
-    this.segundoAtual = this.dataAtual.getSeconds();
-  }
+  const dataOperating = () => ({
+    diasSemana: operation.dataset.semana.split(',').map(Number),
+    horarioSemana: operation.dataset.horario.split(',').map(Number),
+  });
 
-  getTimeToOpen() {
-    this.getActualTime();
-    this.horarioSemana.forEach((hora) => hora > 0);
-    this.hora = (this.horarioSemana[0] - this.horarioAtual);
-    this.minuto = 59 - this.minutoAtual;
-    this.segundo = 59 - this.segundoAtual;
-  }
+  let dataOp;
+  if (operation) dataOp = dataOperating();
 
-  initCountDown() {
-    this.funcionamento.classList.remove('aberto');
-    this.count = setInterval(() => {
-      this.getTimeToOpen();
-      this.funcionamento.innerText = `${this.hora}:${this.minuto}:${this.segundo}`;
+  const getActualTime = () => {
+    const dataAtual = new Date();
+    return {
+      diaAtual: dataAtual.getDay(),
+      horarioAtual: dataAtual.getHours(),
+      minutoAtual: dataAtual.getMinutes(),
+      segundoAtual: dataAtual.getSeconds(),
+    };
+  };
+
+  const getTimeToOpen = () => {
+    const time = getActualTime();
+    return {
+      hora: ((dataOp.horarioSemana[0] - time.horarioAtual) - 1),
+      minuto: 59 - time.minutoAtual,
+      segundo: 59 - time.segundoAtual,
+    };
+  };
+
+  const formatTime = () => {
+    const open = getTimeToOpen();
+    let { hora, minuto, segundo } = open;
+    if (hora < 0) hora += 24;
+    hora = (hora < 10) ? `0${hora}` : hora;
+    minuto = (minuto < 10) ? `0${minuto}` : minuto;
+    segundo = (segundo < 10) ? `0${segundo}` : segundo;
+
+    return {
+      hora,
+      minuto,
+      segundo,
+    };
+  };
+
+  const initCountDown = () => {
+    operation.classList.remove(activeClass);
+    const count = setInterval(() => {
+      const format = formatTime();
+      operation.innerText = `${format.hora}:${format.minuto}:${format.segundo}`;
+      const isTimeToOpen = (format.hora === '00') && (format.minuto === '00') && (format.segundo === '00');
+      if (isTimeToOpen) {
+        open();
+        clearInterval(count);
+      }
     }, 1000);
 
-    return this.count;
-  }
+    return count;
+  };
 
-  open() {
-    clearInterval(this.count);
-    this.funcionamento.classList.add('aberto');
-    this.funcionamento.innerText = 'Aberto';
-  }
+  const open = () => {
+    operation.classList.add(activeClass);
+    operation.innerText = 'Aberto';
+  };
 
-  onDayMatches() {
-    this.getActualTime();
-    this.semanaAberto = this.diasSemana.indexOf(this.diaAtual) !== -1;
-    this.horarioAberto = (this.horarioAtual >= this.horarioSemana[0]
-      && this.horarioAtual < this.horarioSemana[1]);
+  const onDayMatches = () => {
+    const time = getActualTime();
+    const semanaAberto = dataOp.diasSemana.indexOf(time.diaAtual) !== -1;
+    const horarioAberto = (time.horarioAtual >= dataOp.horarioSemana[0]
+      && time.horarioAtual < dataOp.horarioSemana[1]);
 
-    this.initCountDown();
-    if (this.semanaAberto && this.horarioAberto) {
-      this.open();
+    const countdown = initCountDown();
+    if (semanaAberto && horarioAberto) {
+      clearInterval(countdown);
+      open();
     }
-  }
+  };
 
-  init() {
-    if (this.funcionamento && this.diasSemana && this.horarioSemana) {
-      // this.onDayMatches();
-    }
-    return this;
+  if (operation && dataOp.diasSemana && dataOp.horarioSemana) {
+    onDayMatches();
   }
 }
