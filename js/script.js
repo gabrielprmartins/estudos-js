@@ -3,7 +3,7 @@ import TabNavigation from './modules/navegacao-por-tab.js';
 import AnimationNumers from './modules/animation-numbers.js';
 import Tooltip from './modules/tooltip.js';
 import Writer from './modules/writer.js';
-import AnimaScroll from './modules/anima-scroll.js';
+import animaScroll from './modules/anima-scroll.js';
 import Modal from './modules/modal.js';
 import initPosts from './modules/fetch-posts.js';
 import { initProdutos } from './modules/produtos.js';
@@ -18,8 +18,7 @@ tabNav.init();
 const animationNumbers = new AnimationNumers('[data-numero]', 'anima-scroll', '.numeros-curso');
 animationNumbers.init();
 
-const animaScroll = new AnimaScroll('[data-scroll]');
-animaScroll.init();
+animaScroll();
 
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
