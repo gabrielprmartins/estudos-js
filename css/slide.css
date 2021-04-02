@@ -24,6 +24,7 @@
   opacity: .8;
   transform: scale(.8);
   transition: .4s;
+  cursor: grab;
 }
 
 .slide li.active {
