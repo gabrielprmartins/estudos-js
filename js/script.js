@@ -32,5 +32,4 @@ modal.init();
 
 initPosts();
 initProdutos();
-
 contador();
