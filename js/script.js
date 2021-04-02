@@ -8,6 +8,7 @@ import Modal from './modules/modal.js';
 import initPosts from './modules/fetch-posts.js';
 import { initProdutos } from './modules/produtos.js';
 import contador from './modules/contador.js';
+import SlideNav from './modules/slide.js';
 
 const menuMobile = new MenuMobile('[data-menu="botao"]', '[data-menu="lista"]');
 menuMobile.init();
@@ -33,3 +34,7 @@ modal.init();
 initPosts();
 initProdutos();
 contador();
+
+const slide = new SlideNav('.slide', '.slide-wrapper');
+slide.init();
+slide.addControl();
